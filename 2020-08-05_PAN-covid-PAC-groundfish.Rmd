@@ -7,13 +7,17 @@ output:
 ---
 
 
-### How has COVID impacted catch and effort in the Pacific Canada groundfish fishery?
+### How has COVID impacted landings in the Pacific Canada groundfish fishery?
 
 B. Connors (analysis) and L. Lacko (data)
 
+Quantitative Assessment Methods Section, 
+
+Pacific Region, DFO
+
 `r Sys.Date()`
 
-This document breifly describes analyses to quantify COVID-19 associated change in landings in the integrated groundfish fishery in Pacific Canada. 
+This document breifly describes analyses of COVID-19 associated change in landings in the integrated groundfish fishery in Pacific Canada. 
 
 Data for these analyses were queried from GFFOS, a groundfsh-specifc view of the Fishery Operations System (FOS) database (Fisheries and Oceans Canada, Fisheries and Aquaculture Management, Pacifc Region) [@Lisa to add details here], and span ... [@Lisa perhaps include a map of region?]
 
@@ -41,13 +45,15 @@ landed_spp <- catch_effort %>%
   arrange(desc(landings))%>%
   as.data.frame()
 
-  landed_spp[1:20,]
+landed_spp[1:20,]
 ```
+Wow that is a lot of Hake fish fingers.
+
 #####**3. What do landings look like by month over time?**
 ```{r }
 agg_landed_spp <- catch_effort %>%
   group_by(year, month) %>%
-  dplyr::summarise(landings = sum(landed_kg), n = n())%>%
+  summarise(landings = sum(landed_kg), n = n())%>%
   as.data.frame()
 
 ggplot(agg_landed_spp, aes(x= month, y = (landings/100000)))+
@@ -57,14 +63,14 @@ ggplot(agg_landed_spp, aes(x= month, y = (landings/100000)))+
   theme_sleek() 
 ```
 
-Landings clearly vary over the course of the year with max landings typically occuring over the summer. There is no uber obvious decline in landings in the spring/summer of 2020 coincident with COVID (note that landings in July should be interpreted with caution due to potentially incomplete reporting). But landings are dominated by Hake, so let's look at a few of the large landings species individually.
+Landings clearly vary over the course of the year with peak landings typically occuring over the summer. There is no uber obvious decline in landings in the spring/summer of 2020 coincident with COVID (note that landings in July should be interpreted with caution due to potentially incomplete reporting). But landings are dominated by Hake, so let's look at a few of the large landings species individually.
 
 #####**4. What do species specific landings look like over time?** 
 
 ```{r }
 ind_landed_spp <- catch_effort %>%
   group_by(year, month,SPECIES_COMMON_NAME) %>%
-  dplyr::summarise(landings = sum(landed_kg))%>%
+  summarise(landings = sum(landed_kg))%>%
   as.data.frame()
 
 ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="PACIFIC HAKE",], aes(x= month, y = (landings/100000)))+
@@ -110,11 +116,13 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="YELLOWTAIL ROCKFISH",
   ggtitle("Yellowtail")
 ```
 
-No super obvious COVID associated reduction in landings jump out from these figures, but if your squint it looks like landings of Halibut, Sablefish and Lingcod are down a bit since beginning of COVID. But let's actually test for a COVID "effect". 
+No super obvious COVID associated reduction in landings jump out from these figures, but if your squint it looks like landings of Halibut, Sablefish and Lingcod are down a bit since beginning of COVID. 
+
+Let's actually test for a COVID "effect". 
 
 ####5. Test for a COVID lockdown effect on landings
 
-We can test for a COVID lockdown effect on landings by fitting a linear mixed effects model of (log) landings as a function of gear type (landings vary by gear type), and whether or not landings occured during the COVID lockdown. In this case I have subsetted the data to only consider the top ten species in landings, and to only consider the same period of time each year (March to July), so in effect we are asking were landings different in 2020 than they were during the same time period during the previous 10 years? 
+We can test for a COVID lockdown effect on landings by fitting a linear mixed effects model of (log) landings as a function of gear type (landings vary by gear type), and whether or not landings occured during the COVID lockdown. In this case I have subsetted the data to only consider the top ten species in landings, and to only consider the same period of time each year (March to June, inclusive), so in effect we are asking: "Were landings different in 2020 than they were during the same time periods during the previous 10 years?"" 
 
 ```{r, message = FALSE, warnings = FALSE, include=FALSE}
 covid_period <- catch_effort%>%
@@ -126,11 +134,12 @@ I specified year and species as random effects (random intercepts; i.e., landing
 Here is a call to fit the model and then summary of model fit.
 ```{r}
 
-covid_model <- stan_lmer(log(landed_kg)~0+gear+covid+(1|year)+(covid|SPECIES_COMMON_NAME), data = covid_period)
+covid_model <- stan_lmer(log(landed_kg) ~ 0 + gear + covid + (1|year) + (covid|SPECIES_COMMON_NAME), 
+                         data = covid_period)
 summary(covid_model) 
 
 ```
-This summary output suggests that (log) landings were lower during the COVID lockdown (see coefficient for "covid" above) than would otherwise have been expected based on history of landings by gear type over the past decade. But this COVID effect is highly uncertain and not "significant" at a 95% credible interal level. Nonetheless, we can calculate the predicted percent change in landings associated with the COVID lockdown by (exp(covid coefficient)-1)*100 which gives a median of a 63% decline in landings (-98% to +897%; 95% credible intervals). I would **interpret this as a lack of evidence for a COVID lockdown effect on groundfish landings inthe Pacific Region**.
+This summary output suggests that (log) landings were lower during the COVID lockdown (see coefficient for "covid" above) than would otherwise have been expected based on history of landings by gear type over the past decade. But this COVID effect is highly uncertain and not "significant" at a 95% credible interval level. Nonetheless, we can calculate the predicted percent change in landings associated with the COVID lockdown as (exp(covid coefficient)-1)*100 which gives a median of a 63% decline in landings (-98% to +897%; 95% credible intervals). I would **interpret this as a lack of evidence for a COVID lockdown effect on groundfish landings inthe Pacific Region**.
 
 If we want a t-statistic associated with the COVID "effect" then we can also fit the model in a Maximum Likelihood framework using lmer. Looks like there are no singularity issues and covid coefficients are very similar to model above.
 
