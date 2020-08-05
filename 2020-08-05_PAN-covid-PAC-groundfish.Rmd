@@ -8,14 +8,12 @@ output:
 
 
 ### How has COVID impacted landings in the Pacific Canada groundfish fishery?
+**B. Connors and L. Lacko **
 
-B. Connors (analysis) and L. Lacko (data)
+Quantitative Assessment Methods Section, Pacific Region, DFO  
 
-Quantitative Assessment Methods Section, 
+`r Sys.Date()`   
 
-Pacific Region, DFO
-
-`r Sys.Date()`
 
 This document breifly describes analyses of COVID-19 associated change in landings in the integrated groundfish fishery in Pacific Canada. 
 
