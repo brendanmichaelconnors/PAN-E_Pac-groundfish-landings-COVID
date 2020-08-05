@@ -15,9 +15,9 @@ B. Connors (analysis) and L. Lacko (data)
 
 This document breifly describes analyses to quantify COVID-19 associated change in landings in the integrated groundfish fishery in Pacific Canada. 
 
-Data for these analyses were taken from...
+Data for these analyses were queried from GFFOS, a groundfsh-specifc view of the Fishery Operations System (FOS) database (Fisheries and Oceans Canada, Fisheries and Aquaculture Management, Pacifc Region) [@Lisa to add details here], and span ... [@Lisa perhaps include a map of region?]
 
-All code and associated data to reproduce this document can be found on Github [here](https://github.com/brendanmichaelconnors/PSE-pop-SAC/tree/master/How-many-data-points). 
+All code and associated data to reproduce this document can be found on Github [here](https://github.com/brendanmichaelconnors/PAN-E_Pac-groundfish-landings-COVID). 
 
 #####**1. Load required packages and landings and effort data**
 ```{r , message=FALSE, warning=FALSE, echo=TRUE}

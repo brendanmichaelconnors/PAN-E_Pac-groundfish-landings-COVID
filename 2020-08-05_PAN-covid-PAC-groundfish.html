@@ -185,8 +185,8 @@ summary {
 <p>B. Connors (analysis) and L. Lacko (data)</p>
 <p>2020-08-05</p>
 <p>This document breifly describes analyses to quantify COVID-19 associated change in landings in the integrated groundfish fishery in Pacific Canada.</p>
-<p>Data for these analyses were taken from…</p>
-<p>All code and associated data to reproduce this document can be found on Github <a href="https://github.com/brendanmichaelconnors/PSE-pop-SAC/tree/master/How-many-data-points">here</a>.</p>
+<p>Data for these analyses were queried from</p>
+<p>All code and associated data to reproduce this document can be found on Github <a href="https://github.com/brendanmichaelconnors/PAN-E_Pac-groundfish-landings-COVID">here</a>.</p>
 <div id="load-required-packages-and-landings-and-effort-data" class="section level5">
 <h5><strong>1. Load required packages and landings and effort data</strong></h5>
 <pre class="r"><code>library(tidyverse)
@@ -323,9 +323,9 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## Chain 1: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 1: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 1: 
-## Chain 1:  Elapsed Time: 1.381 seconds (Warm-up)
-## Chain 1:                0.899 seconds (Sampling)
-## Chain 1:                2.28 seconds (Total)
+## Chain 1:  Elapsed Time: 1.745 seconds (Warm-up)
+## Chain 1:                0.965 seconds (Sampling)
+## Chain 1:                2.71 seconds (Total)
 ## Chain 1: 
 ## 
 ## SAMPLING FOR MODEL 'continuous' NOW (CHAIN 2).
@@ -348,15 +348,15 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## Chain 2: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 2: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 2: 
-## Chain 2:  Elapsed Time: 1.279 seconds (Warm-up)
-## Chain 2:                0.88 seconds (Sampling)
-## Chain 2:                2.159 seconds (Total)
+## Chain 2:  Elapsed Time: 1.493 seconds (Warm-up)
+## Chain 2:                0.914 seconds (Sampling)
+## Chain 2:                2.407 seconds (Total)
 ## Chain 2: 
 ## 
 ## SAMPLING FOR MODEL 'continuous' NOW (CHAIN 3).
 ## Chain 3: 
-## Chain 3: Gradient evaluation took 0.001 seconds
-## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 10 seconds.
+## Chain 3: Gradient evaluation took 0 seconds
+## Chain 3: 1000 transitions using 10 leapfrog steps per transition would take 0 seconds.
 ## Chain 3: Adjust your expectations accordingly!
 ## Chain 3: 
 ## Chain 3: 
@@ -373,9 +373,9 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## Chain 3: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 3: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 3: 
-## Chain 3:  Elapsed Time: 1.237 seconds (Warm-up)
-## Chain 3:                0.894 seconds (Sampling)
-## Chain 3:                2.131 seconds (Total)
+## Chain 3:  Elapsed Time: 1.261 seconds (Warm-up)
+## Chain 3:                0.956 seconds (Sampling)
+## Chain 3:                2.217 seconds (Total)
 ## Chain 3: 
 ## 
 ## SAMPLING FOR MODEL 'continuous' NOW (CHAIN 4).
@@ -398,9 +398,9 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## Chain 4: Iteration: 1800 / 2000 [ 90%]  (Sampling)
 ## Chain 4: Iteration: 2000 / 2000 [100%]  (Sampling)
 ## Chain 4: 
-## Chain 4:  Elapsed Time: 1.304 seconds (Warm-up)
-## Chain 4:                0.933 seconds (Sampling)
-## Chain 4:                2.237 seconds (Total)
+## Chain 4:  Elapsed Time: 1.528 seconds (Warm-up)
+## Chain 4:                1.517 seconds (Sampling)
+## Chain 4:                3.045 seconds (Total)
 ## Chain 4:</code></pre>
 <pre class="r"><code>summary(covid_model) </code></pre>
 <pre><code>## 
@@ -417,9 +417,9 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## 
 ## Estimates:
 ##                                                                             mean
-## gearBOTTOM TRAWL                                                             4.4
+## gearBOTTOM TRAWL                                                             4.3
 ## gearHOOK AND LINE                                                            8.7
-## gearMIDWATER TRAWL                                                          11.6
+## gearMIDWATER TRAWL                                                          11.5
 ## gearTRAP                                                                     6.8
 ## covid                                                                       -1.0
 ## b[(Intercept) year:2011]                                                     0.3
@@ -435,41 +435,41 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                   1.9
 ## b[covid SPECIES_COMMON_NAME:LINGCOD]                                        -0.6
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                              0.3
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                   -0.1
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                   -0.2
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                           2.1
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -3.4
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -3.3
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                      -2.7
 ## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             2.6
-## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]    0.8
+## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]    0.7
 ## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]          0.2
 ## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 2.6
-## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                       0.9
+## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                       0.8
 ## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                            -1.3
 ## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                  -0.9
-## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                           1.1
+## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                           1.2
 ## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                -0.4
-## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                      -2.0
-## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                             0.7
+## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                      -2.1
+## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                             0.8
 ## sigma                                                                        2.6
 ## Sigma[year:(Intercept),(Intercept)]                                          0.8
-## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           6.7
-## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                -2.1
-## Sigma[SPECIES_COMMON_NAME:covid,covid]                                      11.4
+## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           6.8
+## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                -2.3
+## Sigma[SPECIES_COMMON_NAME:covid,covid]                                      11.5
 ## mean_PPD                                                                     8.6
-## log-posterior                                                             -216.6
+## log-posterior                                                             -216.9
 ##                                                                             sd  
-## gearBOTTOM TRAWL                                                             1.5
-## gearHOOK AND LINE                                                            1.0
-## gearMIDWATER TRAWL                                                           1.3
+## gearBOTTOM TRAWL                                                             1.4
+## gearHOOK AND LINE                                                            1.1
+## gearMIDWATER TRAWL                                                           1.4
 ## gearTRAP                                                                     1.3
-## covid                                                                        1.9
+## covid                                                                        2.0
 ## b[(Intercept) year:2011]                                                     0.7
 ## b[(Intercept) year:2012]                                                     0.8
 ## b[(Intercept) year:2013]                                                     0.7
 ## b[(Intercept) year:2014]                                                     0.6
-## b[(Intercept) year:2015]                                                     0.7
+## b[(Intercept) year:2015]                                                     0.6
 ## b[(Intercept) year:2016]                                                     0.6
-## b[(Intercept) year:2017]                                                     0.8
+## b[(Intercept) year:2017]                                                     0.7
 ## b[(Intercept) year:2018]                                                     0.8
 ## b[(Intercept) year:2019]                                                     0.7
 ## b[(Intercept) year:2020]                                                     0.9
@@ -479,110 +479,110 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                    3.2
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                           1.4
 ## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                 2.9
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                       1.3
-## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             2.5
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                       1.4
+## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             2.6
 ## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]    1.2
 ## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]          2.1
-## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 1.3
+## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 1.2
 ## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                       2.1
-## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                             1.3
+## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                             1.4
 ## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                   2.0
 ## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                           1.5
-## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                 3.1
+## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                 3.3
 ## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                       1.3
-## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                             3.2
+## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                             3.3
 ## sigma                                                                        0.3
-## Sigma[year:(Intercept),(Intercept)]                                          1.2
-## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           5.1
-## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                 4.6
-## Sigma[SPECIES_COMMON_NAME:covid,covid]                                      13.6
+## Sigma[year:(Intercept),(Intercept)]                                          1.1
+## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           5.6
+## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                 4.7
+## Sigma[SPECIES_COMMON_NAME:covid,covid]                                      14.2
 ## mean_PPD                                                                     0.4
-## log-posterior                                                                6.2
+## log-posterior                                                                6.1
 ##                                                                             2.5%
 ## gearBOTTOM TRAWL                                                             1.4
 ## gearHOOK AND LINE                                                            6.5
-## gearMIDWATER TRAWL                                                           9.0
+## gearMIDWATER TRAWL                                                           8.9
 ## gearTRAP                                                                     4.1
 ## covid                                                                       -4.8
-## b[(Intercept) year:2011]                                                    -0.8
+## b[(Intercept) year:2011]                                                    -0.9
 ## b[(Intercept) year:2012]                                                    -0.8
 ## b[(Intercept) year:2013]                                                    -0.8
-## b[(Intercept) year:2014]                                                    -1.5
-## b[(Intercept) year:2015]                                                    -1.9
+## b[(Intercept) year:2014]                                                    -1.6
+## b[(Intercept) year:2015]                                                    -1.8
 ## b[(Intercept) year:2016]                                                    -1.8
-## b[(Intercept) year:2017]                                                    -2.3
+## b[(Intercept) year:2017]                                                    -2.4
 ## b[(Intercept) year:2018]                                                    -1.0
-## b[(Intercept) year:2019]                                                    -1.1
+## b[(Intercept) year:2019]                                                    -1.0
 ## b[(Intercept) year:2020]                                                    -1.9
 ## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                  -0.5
-## b[covid SPECIES_COMMON_NAME:LINGCOD]                                        -7.4
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                             -2.9
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                   -6.8
+## b[covid SPECIES_COMMON_NAME:LINGCOD]                                        -7.6
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                             -3.0
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                   -7.2
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                          -0.4
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -9.8
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                      -5.4
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -9.9
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                      -5.5
 ## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                            -1.5
 ## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]   -1.5
-## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]         -4.3
-## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 0.3
-## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                      -3.0
-## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                            -3.9
+## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]         -4.0
+## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 0.4
+## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                      -3.2
+## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                            -4.0
 ## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                  -5.2
-## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                          -1.7
-## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                -6.8
+## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                          -1.6
+## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                -7.6
 ## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                      -4.7
 ## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                            -5.8
 ## sigma                                                                        2.1
 ## Sigma[year:(Intercept),(Intercept)]                                          0.0
-## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           1.3
-## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                               -12.9
-## Sigma[SPECIES_COMMON_NAME:covid,covid]                                       0.3
+## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           1.4
+## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                               -13.7
+## Sigma[SPECIES_COMMON_NAME:covid,covid]                                       0.2
 ## mean_PPD                                                                     7.7
 ## log-posterior                                                             -229.8
 ##                                                                             25% 
 ## gearBOTTOM TRAWL                                                             3.4
-## gearHOOK AND LINE                                                            8.0
-## gearMIDWATER TRAWL                                                          10.7
-## gearTRAP                                                                     5.9
+## gearHOOK AND LINE                                                            8.1
+## gearMIDWATER TRAWL                                                          10.6
+## gearTRAP                                                                     6.0
 ## covid                                                                       -2.2
-## b[(Intercept) year:2011]                                                     0.0
+## b[(Intercept) year:2011]                                                    -0.1
 ## b[(Intercept) year:2012]                                                    -0.1
-## b[(Intercept) year:2013]                                                     0.0
+## b[(Intercept) year:2013]                                                    -0.1
 ## b[(Intercept) year:2014]                                                    -0.5
 ## b[(Intercept) year:2015]                                                    -0.7
 ## b[(Intercept) year:2016]                                                    -0.6
-## b[(Intercept) year:2017]                                                    -0.9
+## b[(Intercept) year:2017]                                                    -0.8
 ## b[(Intercept) year:2018]                                                    -0.1
 ## b[(Intercept) year:2019]                                                    -0.1
-## b[(Intercept) year:2020]                                                    -0.4
+## b[(Intercept) year:2020]                                                    -0.3
 ## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                   1.0
-## b[covid SPECIES_COMMON_NAME:LINGCOD]                                        -2.2
+## b[covid SPECIES_COMMON_NAME:LINGCOD]                                        -2.1
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                             -0.8
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                   -1.5
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                   -1.6
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                           1.2
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -5.3
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                      -3.5
-## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             0.8
-## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]    0.0
-## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]         -1.1
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -5.2
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                      -3.6
+## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             0.7
+## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]   -0.1
+## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]         -1.0
 ## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 1.8
-## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                      -0.4
+## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                      -0.5
 ## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                            -2.2
 ## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                  -2.0
-## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                           0.1
-## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                -2.0
-## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                      -2.8
+## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                           0.2
+## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                -1.9
+## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                      -2.9
 ## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                            -0.9
 ## sigma                                                                        2.4
 ## Sigma[year:(Intercept),(Intercept)]                                          0.1
-## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           3.4
-## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                -3.9
+## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           3.5
+## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                -4.0
 ## Sigma[SPECIES_COMMON_NAME:covid,covid]                                       2.9
 ## mean_PPD                                                                     8.3
-## log-posterior                                                             -220.5
+## log-posterior                                                             -220.8
 ##                                                                             50% 
-## gearBOTTOM TRAWL                                                             4.4
-## gearHOOK AND LINE                                                            8.7
+## gearBOTTOM TRAWL                                                             4.3
+## gearHOOK AND LINE                                                            8.8
 ## gearMIDWATER TRAWL                                                          11.6
 ## gearTRAP                                                                     6.8
 ## covid                                                                       -1.0
@@ -591,118 +591,118 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## b[(Intercept) year:2013]                                                     0.2
 ## b[(Intercept) year:2014]                                                    -0.1
 ## b[(Intercept) year:2015]                                                    -0.2
-## b[(Intercept) year:2016]                                                    -0.2
+## b[(Intercept) year:2016]                                                    -0.1
 ## b[(Intercept) year:2017]                                                    -0.3
 ## b[(Intercept) year:2018]                                                     0.2
 ## b[(Intercept) year:2019]                                                     0.1
 ## b[(Intercept) year:2020]                                                     0.0
 ## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                   1.8
 ## b[covid SPECIES_COMMON_NAME:LINGCOD]                                        -0.4
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                              0.2
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                              0.3
 ## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                   -0.1
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                           2.1
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -3.0
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -2.9
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                      -2.7
 ## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             2.3
 ## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]    0.7
 ## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]          0.1
-## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 2.6
+## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 2.5
 ## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                       0.7
 ## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                            -1.3
-## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                  -0.8
+## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                  -0.7
 ## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                           1.1
-## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                -0.3
-## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                      -2.0
+## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                -0.2
+## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                      -2.1
 ## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                             0.5
 ## sigma                                                                        2.5
 ## Sigma[year:(Intercept),(Intercept)]                                          0.4
-## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           5.3
+## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           5.4
 ## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                -1.4
 ## Sigma[SPECIES_COMMON_NAME:covid,covid]                                       7.2
 ## mean_PPD                                                                     8.6
-## log-posterior                                                             -216.3
+## log-posterior                                                             -216.4
 ##                                                                             75% 
 ## gearBOTTOM TRAWL                                                             5.3
 ## gearHOOK AND LINE                                                            9.4
-## gearMIDWATER TRAWL                                                          12.5
-## gearTRAP                                                                     7.6
+## gearMIDWATER TRAWL                                                          12.4
+## gearTRAP                                                                     7.7
 ## covid                                                                        0.2
-## b[(Intercept) year:2011]                                                     0.7
-## b[(Intercept) year:2012]                                                     0.8
-## b[(Intercept) year:2013]                                                     0.8
+## b[(Intercept) year:2011]                                                     0.6
+## b[(Intercept) year:2012]                                                     0.7
+## b[(Intercept) year:2013]                                                     0.7
 ## b[(Intercept) year:2014]                                                     0.1
-## b[(Intercept) year:2015]                                                     0.1
+## b[(Intercept) year:2015]                                                     0.0
 ## b[(Intercept) year:2016]                                                     0.1
 ## b[(Intercept) year:2017]                                                     0.0
 ## b[(Intercept) year:2018]                                                     0.7
-## b[(Intercept) year:2019]                                                     0.6
-## b[(Intercept) year:2020]                                                     0.4
-## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                   2.6
-## b[covid SPECIES_COMMON_NAME:LINGCOD]                                         1.1
+## b[(Intercept) year:2019]                                                     0.5
+## b[(Intercept) year:2020]                                                     0.3
+## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                   2.7
+## b[covid SPECIES_COMMON_NAME:LINGCOD]                                         1.0
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                              1.3
 ## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                    1.4
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                           3.0
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -1.2
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                -1.0
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                      -1.8
-## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             4.2
+## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             4.3
 ## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]    1.5
-## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]          1.4
+## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]          1.3
 ## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 3.4
 ## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                       2.1
 ## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                            -0.4
-## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                   0.3
+## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                   0.2
 ## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                           2.1
 ## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                 1.1
 ## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                      -1.2
 ## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                             2.4
 ## sigma                                                                        2.7
-## Sigma[year:(Intercept),(Intercept)]                                          1.1
-## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           8.2
+## Sigma[year:(Intercept),(Intercept)]                                          1.0
+## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                           8.4
 ## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                 0.2
-## Sigma[SPECIES_COMMON_NAME:covid,covid]                                      15.1
+## Sigma[SPECIES_COMMON_NAME:covid,covid]                                      14.9
 ## mean_PPD                                                                     8.9
-## log-posterior                                                             -212.3
+## log-posterior                                                             -212.7
 ##                                                                             97.5%
-## gearBOTTOM TRAWL                                                             7.2 
-## gearHOOK AND LINE                                                           10.6 
-## gearMIDWATER TRAWL                                                          14.3 
-## gearTRAP                                                                     9.3 
-## covid                                                                        2.8 
-## b[(Intercept) year:2011]                                                     2.0 
+## gearBOTTOM TRAWL                                                             7.1 
+## gearHOOK AND LINE                                                           10.7 
+## gearMIDWATER TRAWL                                                          14.2 
+## gearTRAP                                                                     9.4 
+## covid                                                                        3.0 
+## b[(Intercept) year:2011]                                                     1.9 
 ## b[(Intercept) year:2012]                                                     2.3 
 ## b[(Intercept) year:2013]                                                     2.1 
-## b[(Intercept) year:2014]                                                     0.9 
-## b[(Intercept) year:2015]                                                     0.8 
+## b[(Intercept) year:2014]                                                     1.0 
+## b[(Intercept) year:2015]                                                     0.7 
 ## b[(Intercept) year:2016]                                                     0.8 
-## b[(Intercept) year:2017]                                                     0.7 
+## b[(Intercept) year:2017]                                                     0.6 
 ## b[(Intercept) year:2018]                                                     2.2 
-## b[(Intercept) year:2019]                                                     1.9 
-## b[(Intercept) year:2020]                                                     1.9 
-## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                   4.4 
-## b[covid SPECIES_COMMON_NAME:LINGCOD]                                         6.2 
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                              3.4 
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                    6.5 
+## b[(Intercept) year:2019]                                                     1.8 
+## b[(Intercept) year:2020]                                                     1.8 
+## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                   4.5 
+## b[covid SPECIES_COMMON_NAME:LINGCOD]                                         6.1 
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                              3.5 
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                    6.6 
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                           4.9 
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                 0.9 
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                      -0.2 
-## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             8.3 
-## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]    3.4 
-## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]          4.8 
-## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 5.3 
-## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                       5.7 
-## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                             1.3 
-## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                   2.8 
-## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                           4.1 
-## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                 6.1 
-## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                       0.4 
-## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                             7.8 
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                                 1.0 
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                      -0.1 
+## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                             8.4 
+## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]    3.3 
+## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]          4.6 
+## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                                 5.2 
+## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                       5.4 
+## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                             1.4 
+## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                   2.7 
+## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                           4.3 
+## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                                 6.0 
+## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                       0.5 
+## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                             7.9 
 ## sigma                                                                        3.2 
-## Sigma[year:(Intercept),(Intercept)]                                          3.9 
-## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                          20.9 
-## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                 5.2 
-## Sigma[SPECIES_COMMON_NAME:covid,covid]                                      46.8 
+## Sigma[year:(Intercept),(Intercept)]                                          3.8 
+## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                          21.1 
+## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                                 4.7 
+## Sigma[SPECIES_COMMON_NAME:covid,covid]                                      49.0 
 ## mean_PPD                                                                     9.5 
-## log-posterior                                                             -205.4 
+## log-posterior                                                             -205.8 
 ## 
 ## Diagnostics:
 ##                                                                           mcse
@@ -722,9 +722,9 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## b[(Intercept) year:2019]                                                  0.0 
 ## b[(Intercept) year:2020]                                                  0.0 
 ## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                0.0 
-## b[covid SPECIES_COMMON_NAME:LINGCOD]                                      0.0 
+## b[covid SPECIES_COMMON_NAME:LINGCOD]                                      0.1 
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                           0.0 
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                 0.0 
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                 0.1 
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                        0.0 
 ## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                              0.1 
 ## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                    0.0 
@@ -736,14 +736,14 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                          0.0 
 ## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                0.0 
 ## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                        0.0 
-## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                              0.0 
+## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                              0.1 
 ## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                    0.0 
 ## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                          0.1 
 ## sigma                                                                     0.0 
 ## Sigma[year:(Intercept),(Intercept)]                                       0.0 
 ## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                        0.1 
 ## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                              0.1 
-## Sigma[SPECIES_COMMON_NAME:covid,covid]                                    0.3 
+## Sigma[SPECIES_COMMON_NAME:covid,covid]                                    0.4 
 ## mean_PPD                                                                  0.0 
 ## log-posterior                                                             0.2 
 ##                                                                           Rhat
@@ -788,46 +788,46 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME==&quot;PACIFIC HAKE&quo
 ## mean_PPD                                                                  1.0 
 ## log-posterior                                                             1.0 
 ##                                                                           n_eff
-## gearBOTTOM TRAWL                                                          1932 
-## gearHOOK AND LINE                                                         1058 
-## gearMIDWATER TRAWL                                                        1837 
-## gearTRAP                                                                  1388 
-## covid                                                                     2244 
-## b[(Intercept) year:2011]                                                  3742 
-## b[(Intercept) year:2012]                                                  3513 
-## b[(Intercept) year:2013]                                                  3507 
-## b[(Intercept) year:2014]                                                  3537 
-## b[(Intercept) year:2015]                                                  3550 
-## b[(Intercept) year:2016]                                                  3983 
-## b[(Intercept) year:2017]                                                  3295 
-## b[(Intercept) year:2018]                                                  3726 
-## b[(Intercept) year:2019]                                                  4475 
-## b[(Intercept) year:2020]                                                  3556 
-## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                1538 
-## b[covid SPECIES_COMMON_NAME:LINGCOD]                                      4521 
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                           3092 
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                 4296 
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                        1351 
-## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                              1826 
-## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                    1951 
-## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                          2394 
-## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX] 1492 
-## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]       3840 
-## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                              1389 
-## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                    2859 
-## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                          2465 
-## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                3033 
-## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                        2441 
-## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                              3974 
-## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                    2096 
-## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                          3992 
-## sigma                                                                     2408 
-## Sigma[year:(Intercept),(Intercept)]                                       1912 
-## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                        1737 
-## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                              2665 
-## Sigma[SPECIES_COMMON_NAME:covid,covid]                                    1943 
-## mean_PPD                                                                  4097 
-## log-posterior                                                              868 
+## gearBOTTOM TRAWL                                                          1496 
+## gearHOOK AND LINE                                                          974 
+## gearMIDWATER TRAWL                                                        1138 
+## gearTRAP                                                                  1239 
+## covid                                                                     1632 
+## b[(Intercept) year:2011]                                                  3647 
+## b[(Intercept) year:2012]                                                  3122 
+## b[(Intercept) year:2013]                                                  3085 
+## b[(Intercept) year:2014]                                                  3658 
+## b[(Intercept) year:2015]                                                  3046 
+## b[(Intercept) year:2016]                                                  2948 
+## b[(Intercept) year:2017]                                                  3330 
+## b[(Intercept) year:2018]                                                  3505 
+## b[(Intercept) year:2019]                                                  3954 
+## b[(Intercept) year:2020]                                                  3389 
+## b[(Intercept) SPECIES_COMMON_NAME:LINGCOD]                                1417 
+## b[covid SPECIES_COMMON_NAME:LINGCOD]                                      3884 
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HAKE]                           2557 
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HAKE]                                 3879 
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                        1315 
+## b[covid SPECIES_COMMON_NAME:PACIFIC_HALIBUT]                              1621 
+## b[(Intercept) SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                    1647 
+## b[covid SPECIES_COMMON_NAME:PACIFIC_OCEAN_PERCH]                          1812 
+## b[(Intercept) SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX] 1307 
+## b[covid SPECIES_COMMON_NAME:ROUGHEYE/BLACKSPOTTED_ROCKFISH_COMPLEX]       2489 
+## b[(Intercept) SPECIES_COMMON_NAME:SABLEFISH]                              1315 
+## b[covid SPECIES_COMMON_NAME:SABLEFISH]                                    2179 
+## b[(Intercept) SPECIES_COMMON_NAME:SPINY_DOGFISH]                          1872 
+## b[covid SPECIES_COMMON_NAME:SPINY_DOGFISH]                                2004 
+## b[(Intercept) SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                        1639 
+## b[covid SPECIES_COMMON_NAME:WALLEYE_POLLOCK]                              3807 
+## b[(Intercept) SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                    1719 
+## b[covid SPECIES_COMMON_NAME:YELLOWTAIL_ROCKFISH]                          3725 
+## sigma                                                                     1951 
+## Sigma[year:(Intercept),(Intercept)]                                       2139 
+## Sigma[SPECIES_COMMON_NAME:(Intercept),(Intercept)]                        1584 
+## Sigma[SPECIES_COMMON_NAME:covid,(Intercept)]                              2387 
+## Sigma[SPECIES_COMMON_NAME:covid,covid]                                    1549 
+## mean_PPD                                                                  4075 
+## log-posterior                                                              819 
 ## 
 ## For each parameter, mcse is Monte Carlo standard error, n_eff is a crude measure of effective sample size, and Rhat is the potential scale reduction factor on split chains (at convergence Rhat=1).</code></pre>
 <p>This summary output suggests that (log) landings were lower during the COVID lockdown (see coefficient for “covid” above) than would otherwise have been expected based on history of landings by gear type over the past decade. But this COVID effect is highly uncertain and not “significant” at a 95% credible interal level. Nonetheless, we can calculate the predicted percent change in landings associated with the COVID lockdown by (exp(covid coefficient)-1)*100 which gives a median of a 63% decline in landings (-98% to +897%; 95% credible intervals). I would <strong>interpret this as a lack of evidence for a COVID lockdown effect on groundfish landings inthe Pacific Region</strong>.</p>
