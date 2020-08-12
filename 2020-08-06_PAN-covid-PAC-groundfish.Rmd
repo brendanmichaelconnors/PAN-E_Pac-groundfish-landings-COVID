@@ -20,6 +20,8 @@ This document briefly describes analyses of COVID-19 associated change in landin
 
 Data for these analyses were queried from GFFOS, a groundfsh-specific view of the Fishery Operations System (FOS) database (Fisheries and Oceans Canada, Fisheries and Aquaculture Management, Pacific Region) [@Lisa to add details here], and span ... [@Lisa perhaps include a map of region?]
 
+Data for these analyses were queried from GFFOS, a groundfsh-specific view of the Pacific Regional Fishery Operations System (FOS) database.  Groundfish fisheries include the directed Rockfish, Spiny Dogfish, Lingcod, Halibut, Sablefish,  and Trawl fisheries.  Official catch estimates were derived from the ratio of total weight landed from the dockside monitoring program (DMP) to the total of all retained catch weights from the logbook program.
+
 All code and associated data to reproduce this document can be found on Github [here](https://github.com/brendanmichaelconnors/PAN-E_Pac-groundfish-landings-COVID). 
 
 #####**1. Load required packages and landings and effort data**
