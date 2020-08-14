@@ -18,11 +18,15 @@ Quantitative Assessment Methods Section, Pacific Region, DFO
 
 This document briefly describes analyses of COVID-19 associated change in landings in the integrated groundfish fishery in Pacific Canada. 
 
-Data for these analyses were queried from GFFOS, a groundfsh-specific view of the Fishery Operations System (FOS) database (Fisheries and Oceans Canada, Fisheries and Aquaculture Management, Pacific Region) [@Lisa to add details here], and span ... [@Lisa perhaps include a map of region?]
-
-Data for these analyses were queried from GFFOS, a groundfsh-specific view of the Pacific Regional Fishery Operations System (FOS) database.  Groundfish fisheries include the directed Rockfish, Spiny Dogfish, Lingcod, Halibut, Sablefish,  and Trawl fisheries.  Official catch estimates were derived from the ratio of total weight landed from the dockside monitoring program (DMP) to the total of all retained catch weights from the logbook program.
+Data for these analyses were queried from GFFOS, a groundfsh-specific view of the Pacific Regional Fishery Operations System (FOS) database.  Groundfish fisheries include the directed Rockfish, Spiny Dogfish, Lingcod, Halibut, Sablefish, and Trawl fisheries in Pacific waters (Figure 1).  Official catch estimates were derived from the ratio of total weight landed from the dockside monitoring program to the total of all retained catch weights from the logbook program.
 
 All code and associated data to reproduce this document can be found on Github [here](https://github.com/brendanmichaelconnors/PAN-E_Pac-groundfish-landings-COVID). 
+
+```{r echo=FALSE, fig.align = "center",out.width='90%'}
+knitr::include_graphics('PacificRegionI.png')
+
+```
+Figure 1. Pacific Canada Fishery Management Areas.
 
 #####**1. Load required packages and landings and effort data**
 ```{r , message=FALSE, warning=FALSE, echo=TRUE}
@@ -66,7 +70,7 @@ ggplot(agg_landed_spp, aes(x= month, y = (landings/100000)))+
 
 Landings clearly vary over the course of the year with peak landings typically occurring over the summer. There is no uber obvious decline in landings in the spring/summer of 2020 coincident with COVID (note that landings in July should be interpreted with caution due to potentially incomplete reporting). But landings are dominated by Hake, so let's look at a few of the most commonly landed species individually.
 
-#####**4. What do species specific landings look like over time?** 
+#####**4. What do species specific landings (top 10) look like over time?** 
 
 ```{r }
 ind_landed_spp <- catch_effort %>%
@@ -80,23 +84,11 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="PACIFIC HAKE",], aes(
   theme_sleek()+
   ggtitle("Hake")
   
-ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="PACIFIC HALIBUT",], aes(x= month, y = (landings/100000)))+
+ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="ARROWTOOTH FLOUNDER",], aes(x= month, y = (landings/100000)))+
   geom_bar(stat="identity")+
   facet_wrap(~ year) +
   theme_sleek()+
-  ggtitle("Halibut")
-
-ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="SABLEFISH",], aes(x= month, y = (landings/100000)))+
-  geom_bar(stat="identity")+
-  facet_wrap(~ year) +
-  theme_sleek()+
-  ggtitle("Sablefish")
-
-ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="LINGCOD",], aes(x= month, y = (landings/100000)))+
-  geom_bar(stat="identity")+
-  facet_wrap(~ year) +
-  theme_sleek()+
-  ggtitle("Lingcod")
+  ggtitle("Arrowtooth")
 
 ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="WALLEYE POLLOCK",], aes(x= month, y = (landings/100000)))+
   geom_bar(stat="identity")+
@@ -110,17 +102,42 @@ ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="YELLOWTAIL ROCKFISH",
   theme_sleek()+
   ggtitle("Yellowtail")
 
-ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="SPINY DOGFISH",], aes(x= month, y = (landings/100000)))+
-  geom_bar(stat="identity")+
-  facet_wrap(~ year) +
-  theme_sleek()+
-  ggtitle("Dogfish")
-
 ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="PACIFIC OCEAN PERCH",], aes(x= month, y = (landings/100000)))+
   geom_bar(stat="identity")+
   facet_wrap(~ year) +
   theme_sleek()+
   ggtitle("Perch")
+
+ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="PACIFIC HALIBUT",], aes(x= month, y = (landings/100000)))+
+  geom_bar(stat="identity")+
+  facet_wrap(~ year) +
+  theme_sleek()+
+  ggtitle("Halibut")
+
+ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="SABLEFISH",], aes(x= month, y = (landings/100000)))+
+  geom_bar(stat="identity")+
+  facet_wrap(~ year) +
+  theme_sleek()+
+  ggtitle("Sablefish")
+
+ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="DOVER SOLE",], aes(x= month, y = (landings/100000)))+
+  geom_bar(stat="identity")+
+  facet_wrap(~ year) +
+  theme_sleek()+
+  ggtitle("Dover sole")
+
+ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="WIDOW ROCKFISH",], aes(x= month, y = (landings/100000)))+
+  geom_bar(stat="identity")+
+  facet_wrap(~ year) +
+  theme_sleek()+
+  ggtitle("Widow rockfish")
+
+ggplot(ind_landed_spp[ind_landed_spp$SPECIES_COMMON_NAME=="SILVERGRAY ROCKFISH",], aes(x= month, y = (landings/100000)))+
+  geom_bar(stat="identity")+
+  facet_wrap(~ year) +
+  theme_sleek()+
+  ggtitle("Silvergrey rockfish")
+
 ```
 
 No super obvious COVID associated reduction in landings jump out from these figures, but if your squint it looks like landings of Halibut, Sablefish and Lingcod are down a bit since beginning of COVID. 
@@ -133,8 +150,8 @@ We can test for a COVID lockdown effect on landings by fitting a linear mixed ef
 
 ```{r, message = FALSE, warnings = FALSE, include=FALSE}
 covid_period <- catch_effort%>%
-  filter(month_n > 2 & month_n < 7)%>%
-  filter(SPECIES_COMMON_NAME==c("PACIFIC HAKE","PACIFIC HALIBUT","SABLEFISH","LINGCOD","WALLEYE POLLOCK","YELLOWTAIL ROCKFISH","ROUGHEYE/BLACKSPOTTED ROCKFISH COMPLEX", "SPINY DOGFISH", "PACIFIC OCEAN PERCH"))
+  filter(month_n > 2 & month_n < 8)%>%
+  filter(SPECIES_COMMON_NAME==c("PACIFIC HAKE","ARROWTOOTH FLOUNDER","PACIFIC HALIBUT","SABLEFISH","SILVERGRAY ROCKFISH","WALLEYE POLLOCK","YELLOWTAIL ROCKFISH","WIDOW ROCKFISH", "DOVER SOLE", "PACIFIC OCEAN PERCH"))
 ```
 I specified year and species as random effects (random intercepts; i.e., landings vary by year and species) and also allowed the COVID effect to vary by species (random slope). I fit this model in a Bayesian estimation framework using STAN so as to deal with singularity issues (over fitting?) when fit in a Maximum Likelihood framework, plus we can get a full posterior distribution for the random effects. There are admittedly many other ways to think about testing for a COVID effect, this is just a very simple first pass.
 
